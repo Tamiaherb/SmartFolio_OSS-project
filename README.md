@@ -142,7 +142,8 @@
 
 ### [화면 상세분석]
 1. 상단의 핵심지표 (Key Metrics)
-    ![KeyMetrics](KeyMatrics.png)
+   <img width="1073" height="117" alt="KeyMatrics" src="https://github.com/user-attachments/assets/454fda1b-fcba-4db5-a918-914055d64673" />
+
     - 기대 연수익률 (55.12%):
         - “과거 데이터 패턴대로라면, 이 비율로 투자했을 때 1년에 약 55.12%의 수익을 기대할 수 있다”는 뜻이다.
         - 단순히 종목들의 수익률을 평균낸 것이 아니라, 제안된 비중(weight)를 가중 평균한 값
@@ -154,7 +155,8 @@
         - 이 숫자가 높을수록 ‘적은 위험으로 좋은 수익을 냈다’는 뜻이다. 2.24이라는 숫자를 maximize하는 조합을 찾아낸 것이다.
 
 2. Asset Allocation Pie Chart (도넛 차트)
-    ![최적배분](main_1.png)
+    <img width="1903" height="1003" alt="main_1" src="https://github.com/user-attachments/assets/170b9fcc-bafb-47ec-b19f-1fa0dbe3fdbb" />
+
     - “사용자가 가진 돈(100%)을 어떻게 쪼개야 하는가?”에 대한 **황금비율**이다.
     - 예시
         - 035420.KS (네이버): 45.4% → 돈의 절반가까이를 네이버에 넣으세요
@@ -172,7 +174,8 @@
         - 인간의 감이나 기대심리를 배제하고, 수학적 데이터(Sharpe Ratio)에 근거해 수익이 없는 자산을 포트폴리오에서 제거한것이다
 
 3. Stock Price Trend (주가 추이) : 상대적 성과 비교
-    ![주가추이](main_2.png)
+    <img width="1912" height="1008" alt="main_2" src="https://github.com/user-attachments/assets/32aa0d79-b5d0-4197-9682-d73f0f15546d" />
+
     어떤 종목이 시장을 주도했고, 어떤 종목이 하락세인지 직관적으로 파악할 수 있다. 앞의 pie chart에서의 자산 배분 결과를 뒷받침하는 근거가 된다.
 
     - 그래프의 시작점을 모두 100으로
@@ -186,7 +189,8 @@
         - 카카오: 100에서 시작, 100 아래로 나려갔다. (원금 손실)
 
 4. Correlation Analysis (리스크 분석)
-    ![리스크분석](main_3.png)
+    <img width="1852" height="867" alt="main_3" src="https://github.com/user-attachments/assets/dd334ec2-0a58-429b-82f7-55d532656ad1" />
+
     - Heatmap 색상이 의미하는 것
     상관계수(Correlation Coefficient)를 색깔로 표현한 것이다.
         - Red, +1에 가까움: 함께 움직인다. a가 오르면 b도 오르고, a가 떨어지면 b도 떨어진다.
@@ -200,7 +204,8 @@
     => 따라서, 이 차트는 사용자가 “내가 너무 비슷한 종목을 골랐구나. 다른 성격의 자산을 섞어야겠다!”는 판단을 도와주는 의사결정 보조 도구로 쓰일 수 있다.
 
 5. Backtesting: 검증단계
-    ![백테스팅](main_4.png)
+    <img width="1912" height="997" alt="main_4" src="https://github.com/user-attachments/assets/15bd31ca-b065-403e-999e-e639196c597a" />
+
     - 사용자가 설정한 기간의 첫날로 돌아가 1,000만원을 투자했다고 가정했을떄, 계좌 잔고가 매일매일 어떻게 변했는지를 보여준다.’
         - 하늘색 선 (AI 최적화): 이 프로그램이 계산한 ‘황금 비율’대로 투자했을 때의 자산 변화
         - 파란색 (단순 균등 투자): 모든 종목을 똑같이 (1/N) 나눠샀을 대의 자산 변화. 즉, 비교 대상이다.
@@ -208,4 +213,5 @@
 ### [Reference]
     - Library Docs: [Streamlit documentation](https://docs.streamlit.io/), [SciPy](https://scipy.org/)
     - Harry Markowitz: "Portfolio Selection", The Journal of Finance, 1952.
+
     - Scikit-learn Covariance Models — https://scikit-learn.org/
