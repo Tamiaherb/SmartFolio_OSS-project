@@ -2,9 +2,17 @@
 
 ### 사용자가 주식 종목들을 입력하면, ‘현대 포트폴리오 이론(MPT)’에 따라 리스크 대비 수익률이 가장 높은 황금 비율을 찾아주는 도구
 
-- 투자자의 감을 배제하고, 수학적 데이터에 기반하여 Risk-Adjusted Return(위험 조정 수익률)을 극대화하는 자산 배분 비율을 제안한다
+- 투자자의 감을 배제하고, 수학적 데이터에 기반하여 Risk-Adjusted Return(위험 조정 수익률)을 극대화하는 자산 배분 비율을 제시하여 투자자의 의사결정을 돕는 것이 목표입니다.
 - SmartFolio는 예측이 아닌 ‘대응’의 영역인 수학적 자산 배분(Asset Allocation)에 집중하고자 했다.
 - `Scipy` 의 최적화 알고리즘을 활용해, 논리적이고 과학적인 투자를 돕는 도구
+
+### [프로젝트 핵심 기능 개요]
+| 기능 | 설명 |
+|---|---|
+| 최적 비중 산출 | Sharpe Ratio 최대화 → Return / Risk 비율 최적 |
+| 자산 배분 시각화 | Plotly 도넛 그래프로 종목별 투자비중 제공 |
+| 리스크 분석 | Correlation Heatmap으로 분산투자 효과 확인 |
+| Backtesting | "이 비율로 1년 전 투자했다면 얼마?" 결과 시뮬레이션 |
 
 ### [이론적 배경]
 
@@ -46,7 +54,18 @@
         - “과거 1년 전에 이 비율로 투자했다면, 지금 얼마를 벌었을까?”를 계산해서 보여준다
         - “수익률 + 15.4% (예상 수익금: 1,500,000원)” 처럼 숫자를 띄운다
     - 상관관계 히트맵(Correlation Heatmap)
-        - “삼성전자와 하이닉스는 같이 움직여 분산투자 효과가 적습니다”를 색깔로 보여주는 차트 추가
+        - “삼성전자와 하이닉스는 같이 움직여 분산투자 효과가 적습니다”
+        를 색깔로 보여주는 차트 추가
+
+### [프로젝트 실행방법]
+    - 설치
+    ```bash
+    pip install streamlit yfinance pandas numpy scipy scikit-learn plotly
+    ```
+    -실행
+    ```bash
+    streamlit run app.py
+    ```
 
 ### [코드 구현 상세 설명]
 
@@ -180,8 +199,13 @@
     여기에, 미국 국채나 금(gold)와 같은 종목을 섞으면, 파란색(음의 상관관계)이 나타나면서 서로의 위험을 상쇄해줄 수 있다.
     => 따라서, 이 차트는 사용자가 “내가 너무 비슷한 종목을 골랐구나. 다른 성격의 자산을 섞어야겠다!”는 판단을 도와주는 의사결정 보조 도구로 쓰일 수 있다.
 
-4. Backtesting: 검증단계
+5. Backtesting: 검증단계
     ![백테스팅](main_4.png)
     - 사용자가 설정한 기간의 첫날로 돌아가 1,000만원을 투자했다고 가정했을떄, 계좌 잔고가 매일매일 어떻게 변했는지를 보여준다.’
         - 하늘색 선 (AI 최적화): 이 프로그램이 계산한 ‘황금 비율’대로 투자했을 때의 자산 변화
         - 파란색 (단순 균등 투자): 모든 종목을 똑같이 (1/N) 나눠샀을 대의 자산 변화. 즉, 비교 대상이다.
+
+### [Reference]
+    - Library Docs: [Streamlit documentation](https://docs.streamlit.io/), [SciPy](https://scipy.org/)
+    - Harry Markowitz: "Portfolio Selection", The Journal of Finance, 1952.
+    - Scikit-learn Covariance Models — https://scikit-learn.org/
