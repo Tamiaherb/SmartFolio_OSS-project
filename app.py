@@ -41,18 +41,14 @@ if st.sidebar.button("🚀 분석 시작"):
                 daily_returns = data.pct_change().dropna() #일간 변동률계싼
                 mean_returns = daily_returns.mean() * 252  # 연간 기대 수익률
                # (수정)Shrinkage Covariance (Ledoit-Wolf) 적용
-                # 일반적인 sample_cov보다 노이즈에 robust
                 lw = LedoitWolf()
-                # sklearn은 (n_samples, n_features)를 원함
                 lw.fit(daily_returns) 
                 cov_matrix = lw.covariance_ * 252 
-                # 다시 DataFrame으로 변환 (인덱스 유지를 위해)
                 cov_matrix = pd.DataFrame(cov_matrix, index=tickers, columns=tickers)
 
                 # --- 4. 포트폴리오 최적화 (MPT 핵심 로직) ---
                 def portfolio_performance(weights, mean_returns, cov_matrix):
                     returns = np.sum(mean_returns * weights)
-                    # 행렬 연산 시 DataFrame 대신 numpy array 사용 권장
                     std = np.sqrt(np.dot(weights.T, np.dot(cov_matrix.values, weights)))
                     return returns, std
 
@@ -123,7 +119,7 @@ if st.sidebar.button("🚀 분석 시작"):
                     #.sum(axis=1) = 종목별 평가금을 다 더해서 '내 총자산' 계산
                     portfolio_value = (price_change * best_weights * initial_investment).sum(axis=1)
                     
-                    # 2. 벤치마크 (1/N 균등 투자) 가치 변화 계산
+                    # 2. (1/N 균등 투자) 가치 변화 계산
                     equal_weights = np.array([1/len(tickers)] * len(tickers))
                     benchmark_value = (price_change * equal_weights * initial_investment).sum(axis=1)
                     
@@ -150,4 +146,5 @@ if st.sidebar.button("🚀 분석 시작"):
             st.error(f"오류 발생: {e}")
             st.warning("티커가 정확한지 확인해주세요. 한국 주식은 끝에 .KS를 붙여야 합니다.")
 else:
+
     st.info("👈 왼쪽 사이드바에서 종목을 입력하고 분석 버튼을 눌러주세요.")
