@@ -249,9 +249,15 @@
         - 두 선의 간격이 벌어질 수록, SmartFolio가 제안한 비중이 단순 1/N 대비 얼마나 초과성과를 냈는지를 직관적으로 볼 수 있다.
         - 마지막에는 'st.metric'으로, 최종 금액과 초기 1,000만원 대비 수익률(%)을 보여줘, **"이 전략이 실제로 의미가 있었는가?"**를 숫자로 확인할 수 있습니다.
 
+### [주의사항]
+- 한국 주식은 반드시 .KS 필요
+- 종목은 최소 2개 이상 입력해야 최적화 수행
+- 네트워크 오류나 yfinanceAPI 응답없음은 에러 처리됨.
+
 ### [Reference]
     - Library Docs: [Streamlit documentation](https://docs.streamlit.io/), [SciPy](https://scipy.org/)
     - Harry Markowitz: "Portfolio Selection", The Journal of Finance, 1952.
     - Scikit-learn Covariance Models — https://scikit-learn.org/
+
 
 
