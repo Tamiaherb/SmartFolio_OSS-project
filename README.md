@@ -33,7 +33,7 @@
         - 이 선 아래의 포트폴리오는 비효율적이고, 선 위의 포트폴리오들이 효율적 조합이라고 할 수 있다.
         - 몬테카를로 방식으로 수천 개의 조합을 시뮬레이션하면 반달 모양의 구름이 생기고, 그 가장 자리 곡선이 효율적 투자선이 됩니다
         - 이 SmartFolio에서는 이 효율적 투자선 전체를 시각화하기보다는, 그 위에 놓일 수 있는 지점 중 "샤프지수 최대" 지점을 직접 최적화로 찾는 방식에 초점을 맞추었습니다.
-        - 
+      
 ### [Tech Stack]
 - language: Python
     - Web Framework: Streamlit
@@ -253,4 +253,5 @@
     - Library Docs: [Streamlit documentation](https://docs.streamlit.io/), [SciPy](https://scipy.org/)
     - Harry Markowitz: "Portfolio Selection", The Journal of Finance, 1952.
     - Scikit-learn Covariance Models — https://scikit-learn.org/
+
 
